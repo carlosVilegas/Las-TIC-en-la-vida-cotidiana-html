@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC en la Vida Cotidiana - Infografía Interactiva</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de color y fuente -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4F46E5', // Indigo 600
+                        'secondary': '#10B981', // Emerald 500
+                        'accent': '#F59E0B', // Amber 500
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados para el contenedor */
+        .interactive-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            @apply hover:scale-[1.03] hover:shadow-2xl;
+        }
+        /* Estilo para el panel de contenido */
+        .content-panel {
+            transition: max-height 0.7s ease-in-out, opacity 0.5s ease;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            @apply bg-gray-50 p-6 rounded-xl shadow-inner border border-gray-200 mt-4 text-gray-700;
+        }
+        .content-panel.open {
+            max-height: 500px; /* Suficiente para mostrar el contenido */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans p-4 sm:p-8">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Título Principal -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight">
+                El Impacto de las <span class="text-primary">TIC</span> en la Vida Cotidiana
+            </h1>
+            <p class="mt-3 text-xl text-gray-600 max-w-3xl mx-auto">
+                Haz clic en cada ámbito para explorar cómo la tecnología transforma nuestra forma de vivir, aprender y trabajar.
+            </p>
+        </header>
+
+        <!-- Contenedor Principal de la Infografía (3 Columnas en Desktop) -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- 1. ÁMBITO DEL HOGAR -->
+            <div id="hogar-card" data-target="hogar-panel" class="interactive-card bg-white rounded-2xl shadow-lg p-6 text-center border-b-4 border-primary">
+                <!-- Icono SVG (Casa) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <h2 class="text-2xl font-bold text-gray-800">🏠 Las TIC en la Casa</h2>
+                <p class="mt-2 text-gray-500">Conectividad y Comodidad</p>
+
+                <!-- Panel de Contenido Desplegable -->
+                <div id="hogar-panel" class="content-panel">
+                    <p class="font-semibold text-lg text-primary mb-2">Comodidad y Automatización</p>
+                    <p>En nuestros hogares, las TIC son sinónimo de comodidad. Las usamos a diario para comunicarnos con videollamadas, ver series en plataformas de *streaming* o mantenernos al tanto en redes sociales.</p>
+                    <p class="mt-3">Además, la domótica, con asistentes virtuales y cámaras inteligentes, nos ofrece mayor seguridad y simplifica el control de la casa.</p>
+                </div>
+            </div>
+
+            <!-- 2. ÁMBITO EDUCATIVO -->
+            <div id="educacion-card" data-target="educacion-panel" class="interactive-card bg-white rounded-2xl shadow-lg p-6 text-center border-b-4 border-secondary">
+                <!-- Icono SVG (Graduación/Aprendizaje) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V10l8-7 8 7v9.5"/><path d="M8 12.5v5"/><path d="M12 12.5v5"/><path d="M16 12.5v5"/></svg>
+                <h2 class="text-2xl font-bold text-gray-800">🎓 Ámbito Educativo</h2>
+                <p class="mt-2 text-gray-500">Aprendizaje Sin Límites</p>
+
+                <!-- Panel de Contenido Desplegable -->
+                <div id="educacion-panel" class="content-panel">
+                    <p class="font-semibold text-lg text-secondary mb-2">Transformación en un Clic</p>
+                    <p>La educación se ha transformado en un clic. Las TIC nos dan acceso a bibliotecas virtuales y cursos en línea, eliminando las barreras geográficas.</p>
+                    <p class="mt-3">Herramientas interactivas como las pizarras digitales y los cuestionarios dinámicos hacen que el aprendizaje sea más atractivo y la colaboración entre estudiantes, mucho más fácil y fluida.</p>
+                </div>
+            </div>
+
+            <!-- 3. ÁMBITO LABORAL -->
+            <div id="laboral-card" data-target="laboral-panel" class="interactive-card bg-white rounded-2xl shadow-lg p-6 text-center border-b-4 border-accent">
+                <!-- Icono SVG (Maletín/Trabajo) -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <h2 class="text-2xl font-bold text-gray-800">💼 Ámbito Laboral</h2>
+                <p class="mt-2 text-gray-500">Productividad y Globalización</p>
+
+                <!-- Panel de Contenido Desplegable -->
+                <div id="laboral-panel" class="content-panel">
+                    <p class="font-semibold text-lg text-accent mb-2">Eficiencia y Flexibilidad</p>
+                    <p>En el trabajo, las TIC impulsan la eficiencia y el alcance global. El *software* de gestión y la banca electrónica automatizan tareas administrativas clave.</p>
+                    <p class="mt-3">Además, las plataformas de teletrabajo y videoconferencia permiten que los equipos colaboren desde cualquier parte del mundo, haciendo el entorno laboral más flexible y productivo.</p>
+                </div>
+            </div>
+
+        </div> <!-- Fin de grid -->
+
+        <!-- Pie de página (Créditos de elaboración) -->
+        <footer class="mt-16 text-center text-gray-400 text-sm">
+            <p>Diseño y contenido elaborado por Carlos Emiliano Cortes Villegas | Infografía interactiva .</p>
+        </footer>
+    </div>
+
+    <!-- Script para la Interactividad -->
+    <script>
+        // Función para manejar el clic en las tarjetas interactivas
+        function togglePanel(event) {
+            const clickedCard = event.currentTarget;
+            const targetId = clickedCard.dataset.target;
+            const targetPanel = document.getElementById(targetId);
+
+            // Cierra todos los paneles excepto el objetivo
+            document.querySelectorAll('.content-panel').forEach(panel => {
+                if (panel.id !== targetId) {
+                    panel.classList.remove('open');
+                }
+            });
+
+            // Abre o cierra el panel objetivo
+            targetPanel.classList.toggle('open');
+        }
+
+        // Asigna el evento click a todas las tarjetas interactivas
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.interactive-card').forEach(card => {
+                card.addEventListener('click', togglePanel);
+            });
+        });
+    </script>
+
+</body>
+</html>
